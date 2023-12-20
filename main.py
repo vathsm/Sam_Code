@@ -18,3 +18,5 @@ while True:
             todos[number] = new_todo
         case "exit":
             break
+
+print("Thank You!")

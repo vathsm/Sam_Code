@@ -1,7 +1,9 @@
-run
+go
+the
+go
+to
+the
 go
 to
 go
-to
-no
 go

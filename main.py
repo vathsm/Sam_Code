@@ -15,8 +15,8 @@ while True:
 
         todos.append(todo)
 
-        with open("todos.txt", "r") as file:
-            todos = file.readlines()
+        with open("todos.txt", "w") as file:
+            todos = file.writelines(todos)
 
         # file = open("todos.txt", "w")
         # file.writelines(todos)

@@ -3,40 +3,49 @@ while True:
     user_action = input("Type add, show, edit, completed or exit:")
     user_action = user_action.strip()
 
-    match user_action:
-        case "add":
-            todo = input("Enter a To Do:") + "\n"
+    if "add" in user_action:
+        todo = user_action[4:]
 
-            file = open("todos.txt", "r")
+        with open("todos.txt", "r") as file:
             todos = file.readlines()
-            file.close()
 
-            todos.append(todo)
+        # file = open("todos.txt", "r")
+        # todos = file.readlines()
+        # file.close()
 
-            file = open("todos.txt", "w")
-            file.writelines(todos)
-            file.close()
-        case "show":
-            file = open("todos.txt", "r")
+        todos.append(todo)
+
+        with open("todos.txt", "r") as file:
             todos = file.readlines()
-            file.close()
 
-            # new_todos = [item.strip("\n") for item in todos]
+        # file = open("todos.txt", "w")
+        # file.writelines(todos)
+        # file.close()
 
-            for index, item in enumerate(todos):
-                item = item.strip("\n")
-                print(f"{index + 1}. {item}")
+    elif "show" in user_action:
+        #  file = open("todos.txt", "r")
+        # todos = file.readlines()
+        # file.close()
 
-        case "edit":
-            number = int(input("Number of the To Do to edit:")) - 1
-            new_todo = input("Enter new To Do:")
-            todos[number] = new_todo
+        with open("todos.txt", "r") as file:
+            todos = file.readlines()
 
-        case "completed":
-            user_input = int(input("Enter completed item number:")) - 1
-            todos.pop(user_input)
+        # new_todos = [item.strip("\n") for item in todos]
 
-        case "exit":
-            break
+        for index, item in enumerate(todos):
+            item = item.strip("\n")
+            print(f"{index + 1}. {item}")
+
+    elif "edit" in user_action:
+        number = int(input("Number of the To Do to edit:")) - 1
+        new_todo = input("Enter new To Do:")
+        todos[number] = new_todo
+
+    elif "completed" in user_action:
+        user_input = int(input("Enter completed item number:")) - 1
+        todos.pop(user_input)
+
+    elif "exit" in user_action:
+        break
 
 print("Thank You!")

@@ -69,7 +69,7 @@ while True:
             # todos.pop(user_input)
         try:
             number = int(user_action[9:])
-            todos = get_todos
+            todos = get_todos()
 
             index = number - 1
 

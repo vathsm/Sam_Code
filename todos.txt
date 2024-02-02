@@ -1,8 +1,2 @@
-<<<<<<< HEAD
-to
-go
-=======
->>>>>>> 9439f14 (arguments)
-to
-go to the sote
-eat
+hello
+hello
